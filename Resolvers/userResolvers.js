@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import userModels from "../DB/models/userModels.js";
 import { JWT_PRIVATE_KEY } from "../constants.js";
-import tokenGenerator from "../utils/tokengenerator.js";
+import tokenGenerator from "../utils/tokenGenerator.js";
 
 const loginUser = async (parent, args, context) => {
     try {
