@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Server.js",
+  "type": "module",
+  "scripts": {
+    "Server": "nodemon Server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chellappan15/Server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chellappan15/Server/issues"
+  },
+  "homepage": "https://github.com/Chellappan15/Server#readme",
+  "dependencies": {
+    "@apollo/server": "^5.4.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.4",
+    "graphql": "^16.12.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.6",
+    "nodemon": "^3.1.11"
+  }
+}
