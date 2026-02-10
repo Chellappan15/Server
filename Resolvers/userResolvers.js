@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import userModels from "../DB/models/userModels.js";
 import { JWT_PRIVATE_KEY } from "../constants.js";
 import tokenGenerator from "../utils/tokenGenerator.js";
+import { tokenValidator } from "../utils/tokenValidator.js";
 
 const loginUser = async (parent, args, context) => {
     try {
@@ -73,4 +74,33 @@ const createUser = async (parent, args, context) => {
     }
 };
 
-export { loginUser, createUser };
+const getUser = async (parent, args, context) => {
+    try {
+        const username = tokenValidator((context.authorization).split(" ")[1]);
+        const user = await userModels.findOne({ username });
+        if (!user) {
+            return {
+                returnDetails: {
+                    success: false,
+                    message: "User not found"
+                }
+            };
+        }
+        return {
+            returnDetails: {
+                success: true,
+                message: "User found",
+            },
+            user: {
+                name: user.name,
+                username: user.username
+            }
+        };
+    } 
+    catch (error) {
+        console.error("Error fetching user:", error);
+        throw new Error("Failed to fetch user");
+    }       
+};
+
+export { loginUser, createUser, getUser };

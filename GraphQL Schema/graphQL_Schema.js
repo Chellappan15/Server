@@ -75,6 +75,11 @@ export const typeDefs = `
     returnDetails: ReturnDetails!
   }
 
+  type GetUserResponse {
+    user: User,
+    returnDetails: ReturnDetails!
+  }
+
   type Mutation {
     createPost(post: PostInput!): CreatePostResponse,
     deleteMyPost(id: ID!): DeleteMyPost!,
@@ -87,6 +92,7 @@ export const typeDefs = `
     Post: [Post!]!
     getMyPosts: GetMyPostsResponse,
     getAllPosts: GetAllPostsResponse,
-    getSingleRequestedPost(postId: ID!): GetSingleRequestedPost!
+    getSingleRequestedPost(postId: ID!): GetSingleRequestedPost!,
+    getUser: GetUserResponse!,
   }
 `;

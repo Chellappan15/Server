@@ -2,7 +2,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import connectToDatabase from "./DB/connectToDb.js";
 import { typeDefs } from "./GraphQL Schema/graphQL_Schema.js";
-import { createUser, loginUser } from "./Resolvers/userResolvers.js";
+import { createUser, getUser, loginUser } from "./Resolvers/userResolvers.js";
 import { createPost, deleteMyPost, getAllPosts, getMyPosts, getSingleRequestedPost, updateMyPosts } from "./Resolvers/postResolvers.js";
 import dotenv from "dotenv";
 
@@ -16,7 +16,10 @@ const resolvers = {
     getMyPosts: getMyPosts,
 
     // Get single requested post
-    getSingleRequestedPost: getSingleRequestedPost
+    getSingleRequestedPost: getSingleRequestedPost,
+
+    // Get user details Resolver
+    getUser: getUser,
   },
 
   Mutation: {
